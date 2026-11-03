@@ -54,8 +54,28 @@
     <div class="card">
       <div class="label" id="stepLabel">Step 1 of 5</div>
       <div class="directions" id="directions">Enter campus at Entrance 8 off University Blvd.</div>
+      <button id="nextBtn">Next direction</button>
     </div>
   </main>
   <footer>ENTR 222 student prototype. Not an official Uber product.</footer>
+<script>
+  const steps = [
+    "Enter campus at Entrance 8 off Rice Blvd.",
+    "Go straight about 200 ft past the parking lot.",
+    "Turn right onto the inner loop road.",
+    "Pull into the loading zone on the left.",
+    "Arrived! Drop off at the North entrance next to the servery."
+  ];
+  let i = 0;
+  const text = document.getElementById("directions");
+  const label = document.getElementById("stepLabel");
+  const btn = document.getElementById("nextBtn");
+  btn.addEventListener("click", () => {
+    i = (i + 1) % steps.length;
+    text.textContent = steps[i];
+    label.textContent = "Step " + (i + 1) + " of " + steps.length;
+    btn.textContent = i === steps.length - 1 ? "Start over" : "Next direction";
+  });
+</script>
 </body>
 </html>
