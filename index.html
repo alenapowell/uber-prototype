@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus 3D Map – Driver View</title>
+<style>
+  body { margin: 0; font-family: -apple-system, Helvetica, Arial, sans-serif; background: #f3f3f3; color: #111; }
+  header { background: #000; color: #fff; padding: 16px 20px; font-size: 22px; font-weight: 700; }
+  header span { font-weight: 400; opacity: .7; font-size: 14px; margin-left: 8px; }
+  main { max-width: 480px; margin: 0 auto; padding: 16px; }
+  .card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .label { font-size: 12px; text-transform: uppercase; color: #666; letter-spacing: .05em; }
+  .dest { font-size: 18px; font-weight: 700; margin-top: 4px; }
+  .sub { color: #555; margin-top: 4px; }
+  .map { height: 320px; perspective: 700px; overflow: hidden; border-radius: 12px; background: #dfe8d8; margin-bottom: 16px; }
+  .plane { position: relative; width: 360px; height: 360px; margin: -20px auto 0; transform: rotateX(55deg) rotateZ(-30deg); transform-style: preserve-3d; }
+  .road { position: absolute; background: #fff; }
+  .bldg { position: absolute; background: #d8d2c4; transform: translateZ(18px); box-shadow: 0 0 0 1px rgba(0,0,0,.15), 8px 8px 0 #a59f92; }
+  .bldg.target { background: #276ef1; box-shadow: 0 0 0 1px rgba(0,0,0,.2), 8px 8px 0 #1a4fb0; }
+  .route { position: absolute; left: 131px; top: 181px; width: 150px; height: 170px; border-left: 4px dashed #000; border-top: 4px dashed #000; }
+  .car { position: absolute; left: 125px; top: 336px; width: 16px; height: 16px; background: #000; border-radius: 50%; border: 3px solid #fff; }
+  .directions { font-size: 17px; margin-top: 6px; min-height: 44px; }
+  button { width: 100%; padding: 14px; margin-top: 12px; font-size: 16px; font-weight: 600; color: #fff; background: #000; border: none; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #333; }
+  ul { margin: 8px 0 0; padding-left: 20px; }
+  li { margin: 6px 0; }
+  footer { text-align: center; font-size: 12px; color: #888; padding: 8px 0 24px; }
+</style>
+</head>
+<body>
+  <header>Uber <span>Campus 3D Map</span></header>
+  <main>
+    <div class="card">
+      <div class="label">Delivering to</div>
+      <div class="dest">Duncan College – Rice University</div>
+      <div class="sub">Drop-off: North entrance, next to the servery</div>
+    </div>
+
+    <div class="map">
+      <div class="plane">
+        <div class="road" style="left:0; top:170px; width:360px; height:24px;"></div>
+        <div class="road" style="left:120px; top:0; width:24px; height:360px;"></div>
+        <div class="bldg" style="left:20px; top:30px; width:80px; height:110px;"></div>
+        <div class="bldg" style="left:20px; top:220px; width:70px; height:60px;"></div>
+        <div class="bldg" style="left:170px; top:40px; width:60px; height:60px;"></div>
+        <div class="bldg target" style="left:260px; top:60px; width:70px; height:90px;"></div>
+        <div class="bldg" style="left:180px; top:230px; width:140px; height:70px;"></div>
+        <div class="route"></div>
+        <div class="car"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label" id="stepLabel">Step 1 of 5</div>
+      <div class="directions" id="directions">Enter campus at Entrance 8 off University Blvd.</div>
+    </div>
+  </main>
+  <footer>ENTR 222 student prototype. Not an official Uber product.</footer>
+</body>
+</html>
