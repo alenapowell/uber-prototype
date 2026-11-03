@@ -48,6 +48,9 @@
         <div class="bldg" style="left:180px; top:230px; width:140px; height:70px;"></div>
         <div class="route"></div>
         <div class="car"></div>
+        <div class="pin sign" style="left:150px; top:300px;">1</div>
+        <div class="pin sign" style="left:215px; top:150px;">2</div>
+        <div class="pin drop" style="left:285px; top:85px;">3</div>
       </div>
     </div>
 
@@ -55,6 +58,30 @@
       <div class="label" id="stepLabel">Step 1 of 5</div>
       <div class="directions" id="directions">Enter campus at Entrance 8 off University Blvd.</div>
       <button id="nextBtn">Next direction</button>
+    </div>
+      <style>
+      .pin { position: absolute; width: 26px; height: 26px; border-radius: 50%; border: 2px solid #fff; font: 700 14px/26px -apple-system, Helvetica, Arial, sans-serif; text-align: center; transform: translateZ(40px) rotateZ(30deg) rotateX(-55deg); box-shadow: 0 2px 4px rgba(0,0,0,.3); }
+      .sign { background: #ffc043; color: #000; }
+      .drop { background: #05a357; color: #fff; }
+      .spot { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; }
+      .spot + .spot { border-top: 1px solid #eee; }
+      .num { flex: none; width: 26px; height: 26px; border-radius: 50%; text-align: center; line-height: 26px; font-weight: 700; }
+      .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; }
+    </style>
+    <div class="card">
+      <div class="label">Look for these signs and drop-off spots</div>
+      <div class="spot">
+        <div class="num sign">1</div>
+        <div><span class="tag sign">SIGN</span><br><b>"Entrance 8"</b> – sign at the University Blvd gate. Turn in here.</div>
+      </div>
+      <div class="spot">
+        <div class="num sign">2</div>
+        <div><span class="tag sign">SIGN</span><br><b>"Loading Zone – 15 min"</b> – red curb on the left of the inner loop. Park here.</div>
+      </div>
+      <div class="spot">
+        <div class="num drop">3</div>
+        <div><span class="tag drop">FOOD DROP-OFF</span><br><b>Duncan College North Entrance</b> – glass doors next to the servery. Meet the customer at the bench.</div>
+      </div>
     </div>
   </main>
   <footer>ENTR 222 student prototype. Not an official Uber product.</footer>
